@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Responsive Dashboard with Theme Toggle</title>
+>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="dark-theme">
+  <div class="container">
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+      <h1 class="logo">Windmill</h1>
+      <nav class="nav">
+        <div class="nav-item">
+          <span class="icon">🏠</span>
+          <span class="label">Dashboard</span>
+        </div>
+        <div class="nav-item">
+          <span class="icon">📝</span>
+          <span class="label">Forms</span>
+        </div>
+        <div class="nav-item">
+          <span class="icon">🃏</span>
+          <span class="label">Cards</span>
+        </div>
+        <div class="nav-item">
+          <span class="icon">📊</span>
+          <span class="label">Charts</span>
+        </div>
+        <div class="nav-item">
+          <span class="icon">🔘</span>
+          <span class="label">Buttons</span>
+        </div>
+        <div class="nav-item">
+          <span class="icon">🖼️</span>
+          <span class="label">Modals</span>
+        </div>
+        <div class="nav-item">
+          <span class="icon">📋</span>
+          <span class="label">Tables</span>
+        </div>
+        <div class="nav-item">
+          <span class="icon">📄</span>
+          <span class="label">Pages</span>
+        </div>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Top Navbar for Mobile -->
+      <header class="top-navbar">
+        <button class="hamburger" id="hamburger">
+          ☰
+        </button>
+        <h2>Dashboard</h2>
+        <div class="top-right">
+          <input type="text" placeholder="Search for projects" class="search-input">
+          <button class="theme-toggle" id="theme-toggle">🌙</button>
+        </div>
+      </header>
+
+      <!-- GitHub Banner -->
+      <section class="github-banner">
+        <div class="banner-content">
+          <span class="icon">⭐</span>
+          <span>Star this project on GitHub</span>
+        </div>
+        <button class="banner-button">View more &gt;</button>
+      </section>
+
+      <!-- Stats -->
+      <section class="stats">
+        <div class="stat-card bg-orange">
+          <div class="stat-icon">👥</div>
+          <h3>Total clients</h3>
+          <p>6389</p>
+        </div>
+        <div class="stat-card bg-green">
+          <div class="stat-icon">💰</div>
+          <h3>Account balance</h3>
+          <p>$46,760.89</p>
+        </div>
+        <div class="stat-card bg-blue">
+          <div class="stat-icon">🛒</div>
+          <h3>New sales</h3>
+          <p>376</p>
+        </div>
+        <div class="stat-card bg-teal">
+          <div class="stat-icon">💬</div>
+          <h3>Pending contacts</h3>
+          <p>35</p>
+        </div>
+      </section>
+
+      <!-- Client Table -->
+      <section class="client-table">
+        <h3>Client</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Client</th>
+              <th>Amount</th>
+              <th>Status</th>
+              <th>Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <div class="client-info">
+                  <img src="https://via.placeholder.com/32" alt="Hans Burger">
+                  <div>
+                    <p>Hans Burger</p>
+                    <p class="role">Tax Developer</p>
+                  </div>
+                </div>
+              </td>
+              <td>$863.45</td>
+              <td><span class="status approved">Approved</span></td>
+              <td>6/10/2020</td>
+            </tr>
+            <tr>
+              <td>
+                <div class="client-info">
+                  <img src="https://via.placeholder.com/32" alt="Jolina Angelie">
+                  <div>
+                    <p>Jolina Angelie</p>
+                    <p class="role">Unemployed</p>
+                  </div>
+                </div>
+              </td>
+              <td>$369.95</td>
+              <td><span class="status pending">Pending</span></td>
+              <td>6/10/2020</td>
+            </tr>
+            <tr>
+              <td>
+                <div class="client-info">
+                  <img src="https://via.placeholder.com/32" alt="Sarah Curry">
+                  <div>
+                    <p>Sarah Curry</p>
+                    <p class="role">Designer</p>
+                  </div>
+                </div>
+              </td>
+              <td>$86.00</td>
+              <td><span class="status denied">Denied</span></td>
+              <td>6/10/2020</td>
+            </tr>
+            <!-- Add more rows as needed -->
+          </tbody>
+        </table>
+        <div class="pagination">
+          <p>Showing 21-30 of 100</p>
+          <div class="pages">
+            <button class="page">1</button>
+            <button class="page">2</button>
+            <button class="page">3</button>
+            <button class="page">4</button>
+            <button class="page">5</button>
+            <button class="page">6</button>
+            <button class="page">7</button>
+            <button class="page">8</button>
+            <button class="page">9</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Charts -->
+      <section class="charts">
+        <div class="chart-card">
+          <h3>Revenue</h3>
+          <canvas id="revenueChart"></canvas>
+        </div>
+        <div class="chart-card">
+          <h3>Traffic</h3>
+          <canvas id="trafficChart"></canvas>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- Overlay for Mobile Sidebar -->
+  <div class="overlay" id="overlay"></div>
+
+  <!-- Link to external JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>
